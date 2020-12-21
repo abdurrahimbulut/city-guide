@@ -27,7 +27,7 @@ namespace cityGuide
         {
             services.AddControllersWithViews();
             services.AddDbContext<Context>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("Sqlite")));
+                options.UseSqlite("Data Source=CityGuide.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

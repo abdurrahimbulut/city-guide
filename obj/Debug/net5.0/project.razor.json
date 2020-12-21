@@ -15603,6 +15603,11 @@
   "RootNamespace": "cityGuide",
   "Documents": [
     {
+      "FilePath": "c:\\xampp\\htdocs\\netCore\\cityGuide\\Views\\Cities\\index.cshtml",
+      "TargetPath": "Views\\Cities\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\netCore\\cityGuide\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

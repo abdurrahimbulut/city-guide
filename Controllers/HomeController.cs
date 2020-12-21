@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using cityGuide.Models;
+using cityGuide.Data;
 
 namespace cityGuide.Controllers
 {
@@ -20,6 +21,9 @@ namespace cityGuide.Controllers
 
         public IActionResult Index()
         {
+            //var context = new Context();
+            //var user = context.User.ToList();
+
             return View();
         }
 
