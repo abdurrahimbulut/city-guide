@@ -1,4 +1,39 @@
-@model cityGuide.Models.City
+
+@model IEnumerable<cityGuide.Models.City>
 
 
-<h1>deneme @Model.CityName</h1>
+
+<div class="row">
+@foreach (var c in Model)
+{
+   
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-5">
+                    <img height="100%" width="100%" src="@c.ImageUrl" alt="...">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">@c.CityName</h5>
+                        <p class="card-text">
+                            @if (c.Description.Length>20)
+                            {
+                                @c.Description.Substring(0,20);
+                                @Html.Raw("...")
+                            }else{
+                                @c.Description
+                            }
+                            
+                        </p>
+                        <p><small>@c.Country</small></p>
+                        <a class="btn btn-warning" asp-controller="Cities" asp-action="Details" asp-route-id="@c.CityId" > Details</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+}
+</div>

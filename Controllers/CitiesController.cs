@@ -16,11 +16,15 @@ namespace cityGuide.Controllers
         public async Task<IActionResult> Index()
         {
 
-            var city = await _context.City.FirstOrDefaultAsync();
-            /*if (city == null)
-            {
-                return NotFound();
-            }*/
+            var city = await _context.City.ToListAsync();
+
+            return View(city);
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+
+            var city = await _context.City.FirstOrDefaultAsync(c =>c.CityId ==id  );
+
             return View(city);
         }
     }

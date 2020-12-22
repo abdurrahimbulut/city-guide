@@ -1,0 +1,11 @@
+@model cityGuide.Models.City
+
+<div class="card mb-3">
+  
+  <div class="card-body">
+    <h5 class="card-title">@Model.Title - @Model.CityName</h5>
+    <p class="card-text">@Model.Description</p>
+    <p class="card-text"><small class="text-muted">@Model.Country</small></p>
+  </div>
+  <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.CityName">
+</div>
