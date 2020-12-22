@@ -1,18 +1,53 @@
 @model cityGuide.Models.City
 
-<div class="card mb-3">
-  
-  <div class="card-body">
-    <h5 class="card-title">@Model.Title - @Model.CityName</h5>
-    <p class="card-text">@Model.Description</p>
-    <p class="card-text"><small class="text-muted">@Model.Country</small></p>
+<div class="row">
+  <div class="col-md-8 p-2">
+    <div class="card ">
+      <div class="card-body">
+        <h5 class="card-title">@Model.Title - @Model.CityName</h5>
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text"><small class="text-muted">@Model.Country</small></p>
+      </div>
+      <img src="@Model.ImageUrl" class="card-img-bottom" alt="@Model.CityName">
+    </div>
   </div>
-  <img src="@Model.ImageUrl" class="card-img-bottom" alt="@Model.CityName">
+
+
+  <div class="p-2  col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h5>Yorumlar</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+
+        @foreach (var comment in Model.Comment)
+        {
+          <li class="list-group-item">
+            <b class="mb-1">@comment.User.Name</b>
+            <h6 class="mb-0">@comment.Title</h6>
+            <p class="mb-0">@comment.Content</p>
+          </li>
+        }
+      </ul>
+
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Başlık</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary">deneme</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <style>
-  .card-img-bottom{
-    max-height: 800px;
-  }
+
 </style>

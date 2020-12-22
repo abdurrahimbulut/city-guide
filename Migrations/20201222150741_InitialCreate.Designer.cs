@@ -8,7 +8,7 @@ using cityGuide.Data;
 namespace cityGuide.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20201221150106_InitialCreate")]
+    [Migration("20201222150741_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

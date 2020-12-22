@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using cityGuide.Data;
+using cityGuide.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +24,8 @@ namespace cityGuide.Controllers
         public async Task<IActionResult> Details(int id)
         {
 
-            var city = await _context.City.FirstOrDefaultAsync(c =>c.CityId ==id  );
+            var city = await _context.City.Include(c => c.Comment).ThenInclude(y => y.User).FirstOrDefaultAsync(c =>c.CityId ==id );
+
 
             return View(city);
         }

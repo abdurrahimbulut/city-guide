@@ -9,6 +9,6 @@ namespace cityGuide.Models
         public int CityId { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
-
+    
     }
 }

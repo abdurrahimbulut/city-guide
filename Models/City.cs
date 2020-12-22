@@ -12,6 +12,6 @@ namespace cityGuide.Models
         public string Description { get; set; }
         public string Country { get; set; }
         public string ImageUrl { get; set; }
-        public List<Comment> Comment { get; set; }
+        public ICollection<Comment> Comment { get; set; }
     }
 }
