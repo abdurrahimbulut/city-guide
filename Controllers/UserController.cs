@@ -41,6 +41,8 @@ namespace cityGuide.Controllers
                 ViewData["message"]="User not found.";
                 return View();
             }
+            
+            HttpContext.Session.SetString("Role", loginUser.Role); 
             HttpContext.Session.SetString("isUserLogin", "true"); 
             HttpContext.Session.SetString("UserId", loginUser.UserId.ToString()); 
             return RedirectToAction("Index", "Home");
@@ -62,6 +64,7 @@ namespace cityGuide.Controllers
                 ViewData["message"]="Mail is already in use.";
                 return View();
             }
+            user.Role = "visitor";
             await _context.User.AddAsync(user);
             var result = await _context.SaveChangesAsync();
             if (result >0)

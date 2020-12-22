@@ -15,6 +15,32 @@ namespace cityGuide.Controllers
         {
             _context = context;
         }
+        public IActionResult NewCity()
+        {
+            if (HttpContext.Session.GetString("isUserLogin") != null && HttpContext.Session.GetString("Role") == "admin")
+            {
+                return View();
+                
+            }else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> NewCity(City city)
+        {
+            if (HttpContext.Session.GetString("isUserLogin") != null && HttpContext.Session.GetString("Role") == "admin")
+            {
+                await _context.City.AddAsync(city);
+                var result = await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Cities");
+
+            }else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
 
         [HttpPost]
         public async Task<IActionResult> NewComment(int id, Comment comment)
@@ -25,11 +51,6 @@ namespace cityGuide.Controllers
                 comment.UserId = int.Parse(HttpContext.Session.GetString("UserId"));
                 await _context.Comment.AddAsync(comment);
                 var result = await _context.SaveChangesAsync();
-                if (result > 0)
-                {
-                    return RedirectToAction("Details", "Cities", new {id});
-
-                }
                 return RedirectToAction("Details", "Cities",new {id});
 
             }

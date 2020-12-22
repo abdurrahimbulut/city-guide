@@ -31,6 +31,10 @@
                     </ul>
                         @if (Context.Session.GetString("isUserLogin")!= null)
                         {
+                             @if (Context.Session.GetString("Role") == "admin")
+                            {
+                                <a class="btn btn-outline-light m-2"   asp-controller="Cities" asp-action="NewCity">Add City</a>
+                            }
                             <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Logout">Logout</a>
                             //@Html.Raw("Kullanıcı giriş yaptı");
                         }else{

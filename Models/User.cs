@@ -11,5 +11,7 @@ namespace cityGuide.Models
         public string Lastname { get; set; }
 
         public ICollection<Comment> Comment { get; set; }
+        public string Role { get; set; }
+
     }
 }

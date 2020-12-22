@@ -69,3 +69,4 @@ C:\xampp\htdocs\netCore\cityGuide\obj\Debug\net5.0\Razor\Views\Cities\index.csht
 C:\xampp\htdocs\netCore\cityGuide\obj\Debug\net5.0\Razor\Views\Cities\Details.cshtml.g.cs
 C:\xampp\htdocs\netCore\cityGuide\obj\Debug\net5.0\Razor\Views\User\Login.cshtml.g.cs
 C:\xampp\htdocs\netCore\cityGuide\obj\Debug\net5.0\Razor\Views\User\Register.cshtml.g.cs
+C:\xampp\htdocs\netCore\cityGuide\obj\Debug\net5.0\Razor\Views\Cities\NewCity.cshtml.g.cs
