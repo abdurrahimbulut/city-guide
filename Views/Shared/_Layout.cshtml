@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,8 +29,16 @@
                             <a class="nav-link " asp-area="" asp-controller="Cities" asp-action="Index">Cities</a>
                         </li>
                     </ul>
-                    <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Login">Login</a>
-                    <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Register">Register</a>
+                        @if (Context.Session.GetString("isUserLogin")!= null)
+                        {
+                            <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Logout">Logout</a>
+                            //@Html.Raw("Kullanıcı giriş yaptı");
+                        }else{
+                            <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Login">Login</a>
+                            <a class="btn btn-outline-light m-2"   asp-controller="User" asp-action="Register">Register</a>
+                        }   
+                    
+                       
 
                 </div>
             </div>

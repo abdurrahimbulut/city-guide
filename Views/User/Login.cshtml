@@ -1,13 +1,17 @@
-@if (ViewData["error"]!= null)
-{
-    @ViewData["error"]
-}
+
 
 <h1 class="display-4 mb-3">
     Login
 </h1>
 <div class="card">
     <div class="card-body">
+        
+            @if (ViewData["message"]!= null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewData["message"]
+                </div>
+            }
 
         <form method="POST">
             <div class="mb-3">
