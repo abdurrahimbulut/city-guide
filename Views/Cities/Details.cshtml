@@ -1,5 +1,5 @@
 @model cityGuide.Models.City
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="row">
   <div class="col-md-8 p-2">
     <div class="card ">
@@ -16,7 +16,7 @@
   <div class="p-2  col-md-4">
     <div class="card">
       <div class="card-header">
-        <h5>Yorumlar</h5>
+        <h5>Commets</h5>
       </div>
       <ul class="list-group list-group-flush">
 
@@ -30,17 +30,23 @@
         }
       </ul>
 
-      <div class="card-body">
-        <form>
+      <div class="card-body" >
+        <form asp-controller="Cities" asp-action="NewComment" asp-route-id="@Model.CityId"  method="POST">
+            @if (ViewData["message"]!= null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewData["message"]
+                </div>
+            }
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Başlık</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" >
+            <label  class="form-label">Title</label>
+            <input type="text" name="Title" class="form-control" >
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label  class="form-label">Content</label>
+            <textarea class="form-control" name="Content"  rows="3"></textarea>
           </div>
-          <button class="btn btn-primary">deneme</button>
+          <button type="submit"  class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
